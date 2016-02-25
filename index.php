@@ -22,5 +22,3 @@ define('APP_AUTO_BUILD',false);
 
 // 加载框架引导文件
 require __DIR__ . '/../think/thinkphp/start.php';
-// 执行应用
-\think\App::run();

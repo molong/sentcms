@@ -1,10 +1,41 @@
 <?php
 namespace app\admin\controller;
+use app\common\controller\Admin;
 
-class Index
+class Index extends Admin
 {
     public function index()
     {
-        return '<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP5</b>！</p></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_bd568ce7058a1091"></thinkad>';
+        return $this->fetch();
+    }
+
+    public function login(){
+		if(IS_POST){
+			// /* 检测验证码 TODO: */
+			// if(!check_verify($verify)){
+			// 	$this->error('验证码输入错误！');
+			// }
+
+			/* 调用UC登录接口登录 */
+			$User = new UserApi;
+			$uid = $User->login($username, $password);
+			if(0 < $uid){ //UC登录成功
+				/* 登录用户 */
+				$this->success('登录成功！', U('Index/index'));
+			} else { //登录失败
+				switch($uid) {
+					case -1: $error = '用户不存在或被禁用！'; break; //系统级别禁用
+					case -2: $error = '密码错误！'; break;
+					default: $error = '未知错误！'; break; // 0-接口参数错误（调试阶段使用）
+				}
+				$this->error($error);
+			}
+		} else {
+			if(is_login()){
+				$this->redirect('Index/index');
+			}else{
+				return $this->fetch();
+			}
+		}
     }
 }
