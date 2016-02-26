@@ -94,7 +94,7 @@
 								<li class="nav-header hidden-sm hidden-xs">{$key}</li>
 								{volist name="nav" id="item"}
 								{if condition="isset($item['_child'])"}
-								<li class="{$item['class']}">
+								<li class="{$item['style']}">
 									<a href="#" class="dropdown-toggle">
 										<i class="fa fa-{$item['icon']|default='file'}"></i>
 										<span>{$item['title']}</span>
@@ -102,7 +102,7 @@
 									</a>
 									<ul class="submenu">
 										{volist name="item['_child']" id="vo" key="k"}
-										<li class="{$vo['class']}">
+										<li class="{$vo['style']}">
 											<a href="{$vo['url']|U}">
 												<i class="fa fa-{$vo['icon']|default='file'}"></i>
 												<span>{$vo['title']}</span>
@@ -112,7 +112,7 @@
 									</ul>
 								</li>
 								{else/}
-								<li class="{$item['class']}">
+								<li class="{$item['style']}">
 									<a href="{$item['url']|U}">
 										<i class="fa fa-{$item['icon']|default='file'}"></i>
 										<span>{$item['title']}</span>

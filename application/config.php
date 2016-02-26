@@ -2,6 +2,7 @@
 return array(
 
     'url_route_on' => true,
+    'base_url' => '',
     'log'          => array(
         'type'             => 'trace', // 支持 socket trace file
         // 以下为socket类型配置

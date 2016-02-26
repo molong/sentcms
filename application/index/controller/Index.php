@@ -6,6 +6,11 @@ class Index extends Front
 {
     public function index()
     {
-        return $this->fetch();
+        echo '<img src="'.U('Index/index/verify').'">';
+    }
+
+    public function verify(){
+    	$verify = new \org\Verify(array('length'=>4,'useCurve'=>false));
+    	return $verify->entry();
     }
 }

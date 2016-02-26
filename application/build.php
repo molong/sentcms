@@ -18,24 +18,24 @@ return [
     // 定义index模块的自动生成
     'index'    => [
         '__file__'   => ['common.php', 'config.php'],
-        '__dir__'    => ['behavior', 'controller', 'model', 'view'],
-        'controller' => ['Index', 'Test', 'UserType'],
+        '__dir__'    => ['controller', 'model', 'view'],
+        'controller' => ['Index', 'Content', 'Empty'],
         'model'      => [],
         'view'       => ['index/index'],
     ],
     // 定义index模块的自动生成
     'admin'    => [
         '__file__'   => ['common.php', 'config.php'],
-        '__dir__'    => ['behavior', 'controller', 'model', 'view'],
-        'controller' => ['Index', 'Test', 'UserType'],
+        '__dir__'    => ['controller', 'model', 'view'],
+        'controller' => ['Index', 'Content', 'User'],
         'model'      => [],
         'view'       => ['index/index'],
     ],
     // 定义index模块的自动生成
     'user'    => [
         '__file__'   => ['common.php', 'config.php'],
-        '__dir__'    => ['behavior', 'controller', 'model', 'view'],
-        'controller' => ['Index', 'Test', 'UserType'],
+        '__dir__'    => ['controller', 'model', 'view'],
+        'controller' => ['Index', 'Content'],
         'model'      => [],
         'view'       => ['index/index'],
     ],
